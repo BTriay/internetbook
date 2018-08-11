@@ -7,6 +7,8 @@
 #include <QVBoxLayout>
 
 #include "barwidget.h"
+#include "category.h"
+#include "link.h"
 
 #include <QDebug>
 
@@ -19,12 +21,16 @@ private:
     QLabel* a_lbl_info;
     QLabel* a_lbl_separator;
 
+    BarWidget* a_barwidget_truc;
+    BarWidget* a_barwidget_chose;
+    Link* a_link_example;
+
 public:
     MainWindow();
     //~MainWindow();
 
 public slots:
-    //void slot_mainw_hidebar();
+    void slot_mainw_hidebar();
 };
 
 #endif // MAINWINDOW_H

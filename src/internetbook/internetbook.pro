@@ -31,10 +31,14 @@ SOURCES += \
         mainwindow.cpp \
     barwidget.cpp \
     pixlabel.cpp \
-    textlabel.cpp
+    textlabel.cpp \
+    category.cpp \
+    link.cpp
 
 HEADERS += \
         mainwindow.h \
     barwidget.h \
     pixlabel.h \
-    textlabel.h
+    textlabel.h \
+    category.h \
+    link.h

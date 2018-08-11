@@ -2,7 +2,6 @@
 
 TextLabel::TextLabel(const QString& text, QWidget* parent) :
     QLabel(text, parent) {
-
 }
 
 void TextLabel::mouseMoveEvent(QMouseEvent *ev) {

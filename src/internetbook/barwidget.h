@@ -14,12 +14,13 @@ class BarWidget : public QWidget {
 
 private:
     QHBoxLayout* a_hlayout;
-    TextLabel* a_lbl_text;
+    TextLabel* a_lbl_name;
     PixLabel* a_pixlbl_bin;
     PixLabel* a_pixlbl_url;
 
 public:
     BarWidget(const QString& text = QString(), QWidget *parent = Q_NULLPTR);
+    void insertWidget_toBar(int index, QWidget* w);
 
 signals:
     void sig_barwidget_hideme();

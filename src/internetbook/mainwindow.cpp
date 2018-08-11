@@ -2,14 +2,26 @@
 
 MainWindow::MainWindow() : QMainWindow() {
     a_widget_central_zone = new QWidget;
-    this->setCentralWidget(a_widget_central_zone);
+    setCentralWidget(a_widget_central_zone);
 
     a_vlayout_central = new QVBoxLayout;
     a_widget_central_zone->setLayout(a_vlayout_central);
 
     //ADD BARWIDGETS HERE
-    a_vlayout_central->addWidget(new BarWidget("Truc"));
-    a_vlayout_central->addWidget(new BarWidget("Chose"));
+    a_barwidget_truc = new BarWidget("Truc");
+    a_vlayout_central->addWidget(a_barwidget_truc);
+    connect(a_barwidget_truc, SIGNAL(sig_barwidget_hideme()),
+            this, SLOT(slot_mainw_hidebar()));
+
+    a_link_example = new Link("home", "www.example.com");
+    a_vlayout_central->addWidget(a_link_example);
+    connect(a_link_example, SIGNAL(sig_barwidget_hideme()),
+            this, SLOT(slot_mainw_hidebar()));
+
+    a_barwidget_chose = new BarWidget("Chose");
+    a_vlayout_central->addWidget(a_barwidget_chose);
+    connect(a_barwidget_chose, SIGNAL(sig_barwidget_hideme()),
+            this, SLOT(slot_mainw_hidebar()));
     //ADD BARWIDGETS HERE - END
 
     a_vlayout_central->insertStretch(-1);
@@ -28,8 +40,8 @@ MainWindow::MainWindow() : QMainWindow() {
 }
 
 //MainWindow::~MainWindow() {}
-/*
+
 void MainWindow::slot_mainw_hidebar() {
     qDebug() << "hide bar from mainwindow";
+    qobject_cast<QWidget*>(sender())->hide();
 }
-*/
