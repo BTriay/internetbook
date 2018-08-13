@@ -3,12 +3,9 @@
 
 #include <QMainWindow>
 #include <QWidget>
-#include <QLabel>
-#include <QVBoxLayout>
+#include <QStatusBar>
 
-#include "barwidget.h"
-#include "category.h"
-#include "link.h"
+#include "mainwindowtree.h"
 
 #include <QDebug>
 
@@ -16,21 +13,15 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
 
 private:
-    QWidget *a_widget_central_zone;
-    QVBoxLayout *a_vlayout_central;
-    QLabel* a_lbl_info;
-    QLabel* a_lbl_separator;
-
-    BarWidget* a_barwidget_truc;
-    BarWidget* a_barwidget_chose;
-    Link* a_link_example;
+    MainWindowTree *a_widget_central_zone;
+    QStatusBar* a_status_bar;
 
 public:
     MainWindow();
     //~MainWindow();
 
 public slots:
-    void slot_mainw_hidebar();
+    void slot_mainw_set_statusbar(const QString& text, int timeout = 0);
 };
 
 #endif // MAINWINDOW_H
