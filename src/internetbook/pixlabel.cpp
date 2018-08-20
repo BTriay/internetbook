@@ -1,8 +1,15 @@
 #include "pixlabel.h"
 
-PixLabel::PixLabel(const QString& pic_path, QWidget* parent):
+PixLabel::PixLabel(const QString& pic_path,
+                   int pix_size,
+                   QWidget* parent):
     QLabel(parent) {
-    this->setPixmap(QPixmap(pic_path).scaledToHeight(16));
+    a_pic = QPixmap(pic_path);
+    this->setPixmap(a_pic.scaledToHeight(pix_size));
+}
+
+void PixLabel::changePicSize(int new_size) {
+    a_pic.scaledToHeight(new_size);
 }
 
 void PixLabel::mousePressEvent(QMouseEvent *ev) {

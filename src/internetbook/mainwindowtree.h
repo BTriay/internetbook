@@ -30,6 +30,7 @@ signals:
 
 public slots:
     void slot_mainwtree_hidebar();
+    void slot_mainwtree_showbar();
 
 };
 

@@ -11,6 +11,9 @@ MainWindowTree::MainWindowTree(QWidget *parent) : QWidget(parent) {
     insertCategory("programming");
     insertCategory("c++", "programming");
     insertCategory("diy");
+    insertCategory("videos", "c++");
+    insertCategory("compilation", "c++");
+    insertCategory("stuff", "c++");
     insertCategory("visits");
     insertCategory("linux");
     insertCategory("python", "programming");
@@ -25,8 +28,13 @@ MainWindowTree::MainWindowTree(QWidget *parent) : QWidget(parent) {
 }
 
 void MainWindowTree::slot_mainwtree_hidebar() {
-    qDebug() << "hide bar from mainwindow";
+qDebug() << "hide bar from mainwindow";
     qobject_cast<QWidget*>(sender())->hide();
+}
+
+void MainWindowTree::slot_mainwtree_showbar() {
+qDebug() << "show bar in mainwindow";
+    qobject_cast<QWidget*>(sender())->show();
 }
 
 Category* MainWindowTree::findCategory(const QString& text) {
@@ -55,8 +63,13 @@ void MainWindowTree::insertCategoryInLayout(Category* new_cat, const QString& pa
     else {
         for (auto i = 0; i < a_vlayout_central->count(); i++) {
             BarWidget* bar = qobject_cast<BarWidget*>(a_vlayout_central->itemAt(i)->widget());
-             if (bar->name() == parent_cat_text)
+             if (bar->name() == parent_cat_text) {
                  a_vlayout_central->insertWidget(++i, new_cat);
+                 connect(new_cat, SIGNAL(sig_barwidget_hideme()),
+                         this, SLOT(slot_mainwtree_hidebar()));
+                 connect(new_cat, SIGNAL(sig_barwidget_showme()),
+                         this, SLOT(slot_mainwtree_showbar()));
+            }
         }
     }
 }

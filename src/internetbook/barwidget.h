@@ -13,21 +13,22 @@ class BarWidget : public QWidget {
     Q_OBJECT
 
 private:
-    QHBoxLayout* a_hlayout;
     TextLabel* a_lbl_name;
     PixLabel* a_pixlbl_bin;
     PixLabel* a_pixlbl_url;
     Category* a_parent_category;
 
+    virtual void arrow_switch() = 0;
+
 public:
     BarWidget(const QString& text = QString(),
               Category* parent_category = Q_NULLPTR,
               QWidget *parent = Q_NULLPTR);
-    void insertWidget_toBar(int index, QWidget* w);
     const QString name() const { return a_lbl_name->text(); }
 
 signals:
     void sig_barwidget_hideme();
+    void sig_barwidget_showme();
 
 public slots:
     void slot_pixlbl_bin_clicked();
@@ -40,7 +41,14 @@ public slots:
     void slot_textlbl_released();
     void slot_textlbl_move_me(int y);
 
+    void slot_arrow_switch();
+
+    void slot_barwidget_hide();
+    void slot_barwidget_show();
+
 protected:
+    QHBoxLayout* a_hlayout;
+    const QString PIX_FOLDER  = QString("../../icons/");
     Category* parentCategory() const { return a_parent_category; }
 };
 

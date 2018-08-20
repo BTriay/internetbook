@@ -7,8 +7,6 @@ BarWidget::BarWidget(const QString& text, Category* parent_category,
     a_parent_category = parent_category;
 
     if (parent_category != Q_NULLPTR) {
-        const QString PIX_FOLDER  = QString("../../icons/");
-
         a_hlayout = new QHBoxLayout;
         a_hlayout->setContentsMargins(0, 0, 0, 0);
         this->setLayout(a_hlayout);
@@ -34,12 +32,6 @@ BarWidget::BarWidget(const QString& text, Category* parent_category,
     //button.setToolTip("Texte d'aide")
     //button.setCursor(Qt::PointingHandCursor);
 }
-
-void BarWidget::insertWidget_toBar(int index, QWidget* w) {
-    a_hlayout->insertWidget(index, w);
-}
-
-
 
 void BarWidget::slot_pixlbl_bin_clicked() {
     emit sig_barwidget_hideme();
@@ -69,4 +61,17 @@ qDebug() << "BarWidget::slot_textlbl_released" << a_lbl_name->text();
 
 void BarWidget::slot_textlbl_move_me(int y) {
 qDebug() << "BarWidget::slot_textlbl_move_me" << a_lbl_name->text();
+}
+
+void BarWidget::slot_arrow_switch() {
+qDebug() << "slot_arrow_switch";
+    arrow_switch();
+}
+
+void BarWidget::slot_barwidget_hide() {
+    emit sig_barwidget_hideme();
+}
+
+void BarWidget::slot_barwidget_show() {
+    emit sig_barwidget_showme();
 }
