@@ -9,3 +9,9 @@ bin_black
 
 bin_white
 <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Garbage">Garbage</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+down_arrow
+<div>Icons made by <a href="https://www.flaticon.com/authors/lucy-g" title="Down arrow">Down arrow</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+right_arrow
+<div>Icons made by <a href="https://www.flaticon.com/authors/lucy-g" title="Right arrow">Right arrow</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
