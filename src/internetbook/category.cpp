@@ -46,14 +46,16 @@ void Category::newChildCategory(Category* child) {
 }
 
 void Category::arrow_switch() {
-    a_stackw_arrows->setCurrentIndex(a_downarrow);
-    if (a_downarrow)
-        //currently down_arrow, children are visible
-        emit sig_category_hide();
-    else
-        //currently right_arrow, children are not visible
-        emit sig_category_show();
-    a_downarrow = 1 - a_downarrow;
+    if (!a_children_category.empty() | !a_children_link.empty()) {
+        a_stackw_arrows->setCurrentIndex(a_downarrow);
+        if (a_downarrow)
+            //currently down_arrow, children are visible
+            emit sig_category_hide();
+        else
+            //currently right_arrow, children are not visible
+            emit sig_category_show();
+        a_downarrow = 1 - a_downarrow;
+    }
 }
 
 void Category::slot_category_hide_children() {
