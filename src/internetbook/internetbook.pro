@@ -33,7 +33,8 @@ SOURCES += \
     pixlabel.cpp \
     textlabel.cpp \
     category.cpp \
-    link.cpp
+    link.cpp \
+    mainwindowtree.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,4 +42,5 @@ HEADERS += \
     pixlabel.h \
     textlabel.h \
     category.h \
-    link.h
+    link.h \
+    mainwindowtree.h
