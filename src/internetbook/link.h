@@ -8,6 +8,7 @@ class Link : public BarWidget {
 
 private:
     //QLabel* a_lbl_url;
+    //PixLabel* a_pixlbl_url;
     //QString a_url;
 
 public:

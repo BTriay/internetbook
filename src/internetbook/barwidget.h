@@ -15,7 +15,6 @@ class BarWidget : public QWidget {
 private:
     TextLabel* a_lbl_name;
     PixLabel* a_pixlbl_bin;
-    PixLabel* a_pixlbl_url;
     Category* a_parent_category;
 
     virtual void arrow_switch() = 0;

@@ -12,10 +12,10 @@ void PixLabel::changePicSize(int new_size) {
     a_pic.scaledToHeight(new_size);
 }
 
-void PixLabel::mousePressEvent(QMouseEvent *ev) {
+void PixLabel::mousePressEvent(QMouseEvent* ) {
     emit sig_pixlbl_clicked();
 }
 
-void PixLabel::mouseReleaseEvent(QMouseEvent *ev) {
+void PixLabel::mouseReleaseEvent(QMouseEvent* ) {
     emit sig_pixlbl_released();
 }

@@ -11,6 +11,8 @@ Category::Category(const QString& name,
         connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_arrow_switch()));
 
         a_stackw_arrows = new QStackedWidget;
+        a_stackw_arrows->resize(this->height(), this->height());
+        a_stackw_arrows->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         a_stackw_arrows->addWidget(a_pixlbl_down_arrow);
         a_stackw_arrows->addWidget(a_pixlbl_right_arrow);
         a_downarrow = true;

@@ -8,6 +8,7 @@ MainWindowTree::MainWindowTree(QWidget *parent) : QWidget(parent) {
     a_top_category = new Category;
 
     //ADD BARWIDGETS HERE
+
     insertCategory("programming");
     insertCategory("c++", "programming");
     insertCategory("diy");
@@ -25,15 +26,14 @@ MainWindowTree::MainWindowTree(QWidget *parent) : QWidget(parent) {
     //ADD BARWIDGETS HERE - END
 
     a_vlayout_central->insertStretch(-1);
+
 }
 
 void MainWindowTree::slot_mainwtree_hidebar() {
-qDebug() << "hide bar from mainwindow";
     qobject_cast<QWidget*>(sender())->hide();
 }
 
 void MainWindowTree::slot_mainwtree_showbar() {
-qDebug() << "show bar in mainwindow";
     qobject_cast<QWidget*>(sender())->show();
 }
 
@@ -69,6 +69,7 @@ void MainWindowTree::insertCategoryInLayout(Category* new_cat, const QString& pa
                          this, SLOT(slot_mainwtree_hidebar()));
                  connect(new_cat, SIGNAL(sig_barwidget_showme()),
                          this, SLOT(slot_mainwtree_showbar()));
+                 break;
             }
         }
     }

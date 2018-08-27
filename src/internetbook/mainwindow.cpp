@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 
 MainWindow::MainWindow() : QMainWindow() {
-    a_widget_central_zone = new MainWindowTree(this);
+    a_widget_central_zone = new MainWindowTree();
     setCentralWidget(a_widget_central_zone);
 
     a_status_bar = this->statusBar();
