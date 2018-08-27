@@ -16,6 +16,7 @@ class Category : public BarWidget {
 
 private:
     short unsigned int a_level;
+    int a_id;
     std::set<Category*> a_children_category;
     std::set<Link*> a_children_link;
     Category* a_parent_category;
@@ -28,11 +29,12 @@ private:
     void arrow_switch();
 
 public:
-    Category(const QString& name = QString(), Category* a_parent_category = Q_NULLPTR);
+    Category(const QString& name = QString(), int id = 0, Category* a_parent_category = Q_NULLPTR);
 
     const short unsigned int level() const { return a_level; }
+    int id() const { return a_id; }
     void setLevel(short unsigned int new_level) { a_level = new_level; }
-    Category* findCategory(const QString &text);
+    Category* findCategory(int parent_category_id);
 
     void newChildCategory(Category* child);
 

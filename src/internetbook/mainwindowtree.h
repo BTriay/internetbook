@@ -16,14 +16,14 @@ private:
     QVBoxLayout *a_vlayout_central;
     Category* a_top_category;
 
-    Category* insertCategoryInTree(const QString& cat_text, const QString& parent_cat_text = QString());
-    void insertCategoryInLayout(Category* new_cat, const QString& parent_cat_text = QString());
+    Category* insertCategoryInTree(const QString& cat_text, int category_id, int parent_category_id = 0);
+    void insertCategoryInLayout(Category* new_cat, int parent_category_id = 0);
 
 public:
     MainWindowTree(QWidget *parent = Q_NULLPTR);
 
-    void insertCategory(const QString& cat_text, const QString& parent_cat_text = QString());
-    Category* findCategory(const QString& text); //return weak pointer
+    void insertCategory(const QString& cat_text, int category_id, int parent_category_id = 0);
+    Category* findCategory(int parent_category_id); //return weak pointer
 
 signals:
     void sig_mainwtree_status(const QString& text, int timeout = 0);

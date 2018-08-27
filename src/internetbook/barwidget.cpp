@@ -63,7 +63,6 @@ qDebug() << "BarWidget::slot_textlbl_move_me" << a_lbl_name->text();
 }
 
 void BarWidget::slot_arrow_switch() {
-qDebug() << "slot_arrow_switch";
     arrow_switch();
 }
 

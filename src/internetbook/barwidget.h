@@ -23,7 +23,9 @@ public:
     BarWidget(const QString& text = QString(),
               Category* parent_category = Q_NULLPTR,
               QWidget *parent = Q_NULLPTR);
+
     const QString name() const { return a_lbl_name->text(); }
+    Category* parentCategory() const { return a_parent_category; }
 
 signals:
     void sig_barwidget_hideme();
@@ -48,7 +50,6 @@ public slots:
 protected:
     QHBoxLayout* a_hlayout;
     const QString PIX_FOLDER  = QString("../../icons/");
-    Category* parentCategory() const { return a_parent_category; }
 };
 
 #endif // BARWIDGET_H

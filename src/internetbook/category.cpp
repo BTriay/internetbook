@@ -1,7 +1,8 @@
 #include "category.h"
 
-Category::Category(const QString& name,
-                   Category* a_parent_category) : BarWidget(name, a_parent_category) {
+Category::Category(const QString& name, int id,
+                   Category* a_parent_category) : BarWidget(name, a_parent_category),
+                   a_id{id} {
     if (a_parent_category != Q_NULLPTR) {
         a_level = a_parent_category->level() + 1;
 
@@ -9,6 +10,8 @@ Category::Category(const QString& name,
         connect(a_pixlbl_down_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_arrow_switch()));
         a_pixlbl_right_arrow = new PixLabel(PIX_FOLDER + "right_arrow.png", 10);
         connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_arrow_switch()));
+        //sends the signals to BarWidget::slot_arrow_switch()
+        //and not Category::slot_arrow_switch(). Why?
 
         a_stackw_arrows = new QStackedWidget;
         a_stackw_arrows->resize(this->height(), this->height());
@@ -24,11 +27,11 @@ Category::Category(const QString& name,
         a_level = 0; //top-level category only
 }
 
-Category* Category::findCategory(const QString &text) {
+Category* Category::findCategory(int parent_category_id) {
 
     for (auto it = a_children_category.begin(); it != a_children_category.end(); it ++) {
-        if ((*it)->name() != text) {
-            Category* res = (*it)->findCategory(text);
+        if ((*it)->id() != parent_category_id) {
+            Category* res = (*it)->findCategory(parent_category_id);
             if (res != (*it))
                 return res;
         }
