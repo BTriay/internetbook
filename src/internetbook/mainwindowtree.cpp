@@ -63,8 +63,7 @@ void MainWindowTree::insertCategoryInLayout(Category* new_cat, int parent_catego
             a_vlayout_central->addWidget(new_cat);
     else {
         for (auto i = 0; i < a_vlayout_central->count(); i++) {
-            Category* cat = qobject_cast<Category*>(a_vlayout_central->itemAt(i)->widget());
-            //will not work with links. dynamic_cast to test if Category ptr?
+            BarWidget* cat = qobject_cast<BarWidget*>(a_vlayout_central->itemAt(i)->widget());
             if (cat->id() == parent_category_id) {
                  a_vlayout_central->insertWidget(++i, new_cat);
                  connect(new_cat, SIGNAL(sig_barwidget_hideme()),

@@ -27,6 +27,8 @@ public:
     const QString name() const { return a_lbl_name->text(); }
     Category* parentCategory() const { return a_parent_category; }
 
+    virtual int id() const { return -1; }
+
 signals:
     void sig_barwidget_hideme();
     void sig_barwidget_showme();
