@@ -38,7 +38,10 @@ void MainWindowTree::slot_mainwtree_showbar() {
 }
 
 Category* MainWindowTree::findCategory(int parent_category_id) {
-    return a_top_category->findCategory(parent_category_id);
+    if (parent_category_id != 0)
+        return a_top_category->findCategory(parent_category_id);
+    else
+        return a_top_category;
 }
 
 void MainWindowTree::insertCategory(const QString& cat_text, int category_id, int parent_category_id) {
@@ -48,11 +51,7 @@ void MainWindowTree::insertCategory(const QString& cat_text, int category_id, in
 }
 
 Category* MainWindowTree::insertCategoryInTree(const QString& cat_text, int category_id, int parent_category_id) {
-    Category* parent;
-    if (parent_category_id != 0)
-        parent = findCategory(parent_category_id);
-    else
-        parent = a_top_category;
+    Category* parent = findCategory(parent_category_id);
     Category* new_cat = new Category(cat_text, category_id, parent);
     parent->newChildCategory(new_cat);
     return new_cat;
