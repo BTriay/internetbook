@@ -11,6 +11,8 @@ private:
     //PixLabel* a_pixlbl_url;
     //QString a_url;
 
+    virtual void arrow_switch() {} //no arrow switch in links
+
 public:
     //Link(QString name, QString url);
     Link();
