@@ -47,7 +47,7 @@ Category* MainWindowTree::findCategory(int parent_category_id) {
 void MainWindowTree::insertCategory(const QString& cat_text, int category_id, int parent_category_id) {
     //use smart ptr
     Category* new_cat = insertCategoryInTree(cat_text, category_id, parent_category_id);
-    insertCategoryInLayout(new_cat, parent_category_id);
+    insertCatLinkInLayout(qobject_cast<BarWidget*>(new_cat), parent_category_id);
 }
 
 Category* MainWindowTree::insertCategoryInTree(const QString& cat_text, int category_id, int parent_category_id) {
@@ -57,22 +57,22 @@ Category* MainWindowTree::insertCategoryInTree(const QString& cat_text, int cate
     return new_cat;
 }
 
-void MainWindowTree::insertCategoryInLayout(Category* new_cat, int parent_category_id) {
+void MainWindowTree::insertCatLinkInLayout(BarWidget* new_bar, int parent_category_id) {
     if (parent_category_id == 0)
-            a_vlayout_central->addWidget(new_cat);
+        a_vlayout_central->insertWidget(a_vlayout_central->count(), new_bar);
     else {
         for (auto i = 0; i < a_vlayout_central->count(); i++) {
-            BarWidget* cat = qobject_cast<BarWidget*>(a_vlayout_central->itemAt(i)->widget());
-            if (cat->id() == parent_category_id) {
-                 a_vlayout_central->insertWidget(++i, new_cat);
-                 connect(new_cat, SIGNAL(sig_barwidget_hideme()),
+            BarWidget* bar = qobject_cast<BarWidget*>(a_vlayout_central->itemAt(i)->widget());
+            if (bar->id() == parent_category_id) {
+                 a_vlayout_central->insertWidget(++i, new_bar);
+                 connect(new_bar, SIGNAL(sig_barwidget_hideme()),
                          this, SLOT(slot_mainwtree_hidebar()));
-                 connect(new_cat, SIGNAL(sig_barwidget_showme()),
+                 connect(new_bar, SIGNAL(sig_barwidget_showme()),
                          this, SLOT(slot_mainwtree_showbar()));
                  break;
             } else {
             }
         }
-        //return an error here?
+        //return an error here or insert in parent_category?
     }
 }

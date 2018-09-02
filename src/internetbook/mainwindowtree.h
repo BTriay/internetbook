@@ -17,7 +17,7 @@ private:
     Category* a_top_category;
 
     Category* insertCategoryInTree(const QString& cat_text, int category_id, int parent_category_id = 0);
-    void insertCategoryInLayout(Category* new_cat, int parent_category_id = 0);
+    void insertCatLinkInLayout(BarWidget* new_bar, int parent_category_id = 0);
 
 public:
     MainWindowTree(QWidget *parent = Q_NULLPTR);
