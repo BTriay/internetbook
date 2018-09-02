@@ -7,9 +7,11 @@ Category::Category(const QString& name, int id,
         a_level = a_parent_category->level() + 1;
 
         a_pixlbl_down_arrow = new PixLabel(PIX_FOLDER + "down_arrow.png", 10);
-        connect(a_pixlbl_down_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_arrow_switch()));
+        //connect(a_pixlbl_down_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_barwidget_arrow_switch()));
+        connect(a_pixlbl_down_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_category_arrow_switch()));
         a_pixlbl_right_arrow = new PixLabel(PIX_FOLDER + "right_arrow.png", 10);
-        connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_arrow_switch()));
+        //connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_barwidget_arrow_switch()));
+        connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_category_arrow_switch()));
         //sends the signals to BarWidget::slot_arrow_switch()
         //and not Category::slot_arrow_switch(). Why?
 
@@ -50,7 +52,8 @@ void Category::newChildCategory(Category* child) {
     connect(this, SIGNAL(sig_category_show()), child, SLOT(slot_category_show_children()));
 }
 
-void Category::arrow_switch() {
+//void Category::arrow_switch() {
+void Category::slot_category_arrow_switch() {
     if (!a_children_category.empty() | !a_children_link.empty()) {
         a_stackw_arrows->setCurrentIndex(a_downarrow);
         if (a_downarrow)

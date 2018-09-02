@@ -26,7 +26,7 @@ private:
     PixLabel* a_pixlbl_right_arrow;
     PixLabel* a_pixlbl_down_arrow;
 
-    void arrow_switch();
+    //void arrow_switch();
 
 public:
     Category(const QString& name = QString(), int id = 0, Category* a_parent_category = Q_NULLPTR);
@@ -43,6 +43,8 @@ signals:
     void sig_category_show();
 
 public slots:
+    void slot_category_arrow_switch();
+
     void slot_category_hide_children();
     void slot_category_show_children();
 };

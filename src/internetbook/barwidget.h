@@ -17,7 +17,7 @@ private:
     PixLabel* a_pixlbl_bin;
     Category* a_parent_category;
 
-    virtual void arrow_switch() = 0;
+    //virtual void arrow_switch() = 0;
 
 public:
     BarWidget(const QString& text = QString(),
@@ -34,17 +34,17 @@ signals:
     void sig_barwidget_showme();
 
 public slots:
-    void slot_pixlbl_bin_clicked();
-    void slot_pixlbl_bin_released();
+    void slot_barwidget_pixlbl_bin_clicked();
+    void slot_barwidget_pixlbl_bin_released();
 
-    void slot_pixlbl_url_clicked();
-    void slot_pixlbl_url_released();
+    void slot_barwidget_pixlbl_url_clicked();
+    void slot_barwidget_pixlbl_url_released();
 
-    void slot_textlbl_clicked();
-    void slot_textlbl_released();
-    void slot_textlbl_move_me(int y);
+    void slot_barwidget_textlbl_clicked();
+    void slot_barwidget_textlbl_released();
+    void slot_barwidget_textlbl_move_me(int y);
 
-    void slot_arrow_switch();
+    //void slot_barwidget_arrow_switch();
 
     void slot_barwidget_hide();
     void slot_barwidget_show();
