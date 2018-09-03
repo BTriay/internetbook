@@ -1,15 +1,23 @@
 #include "link.h"
-/*
-Link::Link(QString name, QString url) : BarWidget(name) {
-    a_lbl_url = new QLabel(url);
-    this->insertWidget_toBar(1, a_lbl_url);
+#include "category.h"
 
-    a_pixlbl_url = new PixLabel(PIX_FOLDER + "url_black.png");
-    a_hlayout->addWidget(a_pixlbl_url);
-    connect(a_pixlbl_url, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_pixlbl_url_clicked()));
-    connect(a_pixlbl_url, SIGNAL(sig_pixlbl_released()), this, SLOT(slot_pixlbl_url_released()));
+Link::Link(QString name, QString url, Category *parent_category) :
+    BarWidget(name, parent_category) {
 
+    a_lbl_url = new TextLabel(url);
+    a_hlayout->insertWidget(2, a_lbl_url);
+    a_hlayout->insertSpacing(0, parent_category->childSpace());
+}
 
+Link::~Link() {
 
 }
-*/
+
+/*
+void Link::slot_link_hide() {
+    emit sig_link_hide();
+}
+
+void Link::slot_link_show() {
+    emit sig_link_show();
+}*/

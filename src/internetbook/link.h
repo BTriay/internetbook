@@ -2,20 +2,34 @@
 #define LINK_H
 
 #include <QLabel>
-#include "barwidget.h"
 
+#include "barwidget.h"
+/*
+class Category;
+int Category::childSpace();
+*/
 class Link : public BarWidget {
+    Q_OBJECT
 
 private:
-    //QLabel* a_lbl_url;
+    QLabel* a_lbl_url;
     //PixLabel* a_pixlbl_url;
-    //QString a_url;
-
-    virtual void arrow_switch() {} //no arrow switch in links
 
 public:
-    //Link(QString name, QString url);
-    Link();
+    Link(QString name, QString url, Category* parent_category);
+    virtual ~Link();
+
+/*
+signals:
+    void sig_link_hide();
+    void sig_link_show();
+*/
+public slots:
+    void dummy() {}
+/*
+    void slot_link_hide();
+    void slot_link_show();
+*/
 };
 
 #endif // LINK_H

@@ -5,9 +5,8 @@
 #include <QStackedWidget>
 
 #include "barwidget.h"
-#include "link.h"
 
-#include <QDebug>
+class Link;
 
 const int a_space_size = 8;
 
@@ -26,17 +25,20 @@ private:
     PixLabel* a_pixlbl_right_arrow;
     PixLabel* a_pixlbl_down_arrow;
 
-    //void arrow_switch();
+    void connectNewChild(BarWidget* child);
 
 public:
     Category(const QString& name = QString(), int id = 0, Category* a_parent_category = Q_NULLPTR);
+    virtual ~Category();
 
     const short unsigned int level() const { return a_level; }
+    int childSpace() const { return a_level * a_space_size; }
     int id() const { return a_id; }
     void setLevel(short unsigned int new_level) { a_level = new_level; }
     Category* findCategory(int parent_category_id);
 
     void newChildCategory(Category* child);
+    void newChildLink(Link* child);
 
 signals:
     void sig_category_hide();

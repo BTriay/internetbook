@@ -32,6 +32,10 @@ BarWidget::BarWidget(const QString& text, Category* parent_category,
     //button.setCursor(Qt::PointingHandCursor);
 }
 
+BarWidget::~BarWidget() {
+
+}
+
 void BarWidget::slot_barwidget_pixlbl_bin_clicked() {
     //emit sig_barwidget_hideme();
 qDebug() << "BarWidget::slot_pixlbl_bin_clicked()";
@@ -61,15 +65,11 @@ qDebug() << "BarWidget::slot_textlbl_released" << a_lbl_name->text();
 void BarWidget::slot_barwidget_textlbl_move_me(int y) {
 qDebug() << "BarWidget::slot_textlbl_move_me" << a_lbl_name->text();
 }
-/*
-void BarWidget::slot_barwidget_arrow_switch() {
-    arrow_switch();
-}
-*/
+
 void BarWidget::slot_barwidget_hide() {
-    emit sig_barwidget_hideme();
+    emit sig_barwidget_hide();
 }
 
 void BarWidget::slot_barwidget_show() {
-    emit sig_barwidget_showme();
+    emit sig_barwidget_show();
 }

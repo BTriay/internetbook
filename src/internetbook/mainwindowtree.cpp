@@ -22,6 +22,8 @@ MainWindowTree::MainWindowTree(QWidget *parent) : QWidget(parent) {
     insertCategory("commands", 11, 8);
     insertCategory("tips", 12, 8);
     insertCategory("install", 13, 8);
+    insertLink("Meyer universal ptrs", "www.example.com", 4);
+    insertLink("Visit England", "www.visintengland.co.uk", 7);
 
     //ADD BARWIDGETS HERE - END
 
@@ -45,16 +47,27 @@ Category* MainWindowTree::findCategory(int parent_category_id) {
 }
 
 void MainWindowTree::insertCategory(const QString& cat_text, int category_id, int parent_category_id) {
-    //use smart ptr
-    Category* new_cat = insertCategoryInTree(cat_text, category_id, parent_category_id);
+    Category* new_cat = insertCategoryInTree(cat_text, category_id, parent_category_id); //use smart ptr
     insertCatLinkInLayout(qobject_cast<BarWidget*>(new_cat), parent_category_id);
+}
+
+void MainWindowTree::insertLink(const QString& link_text, QString url, int parent_category_id) {
+    Link* new_link = insertLinkInTree(link_text, url, parent_category_id);//use smart ptr
+    insertCatLinkInLayout(qobject_cast<BarWidget*>(new_link), parent_category_id);
 }
 
 Category* MainWindowTree::insertCategoryInTree(const QString& cat_text, int category_id, int parent_category_id) {
     Category* parent = findCategory(parent_category_id);
-    Category* new_cat = new Category(cat_text, category_id, parent);
+    Category* new_cat = new Category(cat_text, category_id, parent); //use smart ptr
     parent->newChildCategory(new_cat);
     return new_cat;
+}
+
+Link *MainWindowTree::insertLinkInTree(const QString& link_text, QString url, int parent_category_id) {
+    Category* parent = findCategory(parent_category_id);
+    Link* new_link = new Link(link_text, url, parent); //use smart ptr
+    parent->newChildLink(new_link);
+    return new_link;
 }
 
 void MainWindowTree::insertCatLinkInLayout(BarWidget* new_bar, int parent_category_id) {
@@ -65,9 +78,9 @@ void MainWindowTree::insertCatLinkInLayout(BarWidget* new_bar, int parent_catego
             BarWidget* bar = qobject_cast<BarWidget*>(a_vlayout_central->itemAt(i)->widget());
             if (bar->id() == parent_category_id) {
                  a_vlayout_central->insertWidget(++i, new_bar);
-                 connect(new_bar, SIGNAL(sig_barwidget_hideme()),
+                 connect(new_bar, SIGNAL(sig_barwidget_hide()),
                          this, SLOT(slot_mainwtree_hidebar()));
-                 connect(new_bar, SIGNAL(sig_barwidget_showme()),
+                 connect(new_bar, SIGNAL(sig_barwidget_show()),
                          this, SLOT(slot_mainwtree_showbar()));
                  break;
             } else {

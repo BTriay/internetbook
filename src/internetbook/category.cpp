@@ -1,4 +1,5 @@
 #include "category.h"
+#include "link.h"
 
 Category::Category(const QString& name, int id,
                    Category* a_parent_category) : BarWidget(name, a_parent_category),
@@ -7,13 +8,9 @@ Category::Category(const QString& name, int id,
         a_level = a_parent_category->level() + 1;
 
         a_pixlbl_down_arrow = new PixLabel(PIX_FOLDER + "down_arrow.png", 10);
-        //connect(a_pixlbl_down_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_barwidget_arrow_switch()));
         connect(a_pixlbl_down_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_category_arrow_switch()));
         a_pixlbl_right_arrow = new PixLabel(PIX_FOLDER + "right_arrow.png", 10);
-        //connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_barwidget_arrow_switch()));
         connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_category_arrow_switch()));
-        //sends the signals to BarWidget::slot_arrow_switch()
-        //and not Category::slot_arrow_switch(). Why?
 
         a_stackw_arrows = new QStackedWidget;
         a_stackw_arrows->resize(this->height(), this->height());
@@ -27,6 +24,10 @@ Category::Category(const QString& name, int id,
     }
     else
         a_level = 0; //top-level category only
+}
+
+Category::~Category() {
+
 }
 
 Category* Category::findCategory(int parent_category_id) {
@@ -44,15 +45,26 @@ Category* Category::findCategory(int parent_category_id) {
 
 }
 
-void Category::newChildCategory(Category* child) {
-    a_children_category.insert(child);
+void Category::connectNewChild(BarWidget* child) {
     connect(this, SIGNAL(sig_category_hide()), child, SLOT(slot_barwidget_hide()));
-    connect(this, SIGNAL(sig_category_hide()), child, SLOT(slot_category_hide_children()));
     connect(this, SIGNAL(sig_category_show()), child, SLOT(slot_barwidget_show()));
-    connect(this, SIGNAL(sig_category_show()), child, SLOT(slot_category_show_children()));
+
 }
 
-//void Category::arrow_switch() {
+void Category::newChildCategory(Category* child) {
+    a_children_category.insert(child);
+    connectNewChild(qobject_cast<BarWidget*>(child));
+    connect(this, SIGNAL(sig_category_hide()),
+            qobject_cast<BarWidget*>(child), SLOT(slot_category_hide_children()));
+    connect(this, SIGNAL(sig_category_show()),
+            qobject_cast<BarWidget*>(child), SLOT(slot_category_show_children()));
+}
+
+void Category::newChildLink(Link* child) {
+    a_children_link.insert(child);
+    connectNewChild(qobject_cast<BarWidget*>(child));
+}
+
 void Category::slot_category_arrow_switch() {
     if (!a_children_category.empty() | !a_children_link.empty()) {
         a_stackw_arrows->setCurrentIndex(a_downarrow);
