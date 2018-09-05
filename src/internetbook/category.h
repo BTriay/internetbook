@@ -31,7 +31,7 @@ public:
     Category(const QString& name = QString(), int id = 0, Category* a_parent_category = Q_NULLPTR);
     virtual ~Category();
 
-    const short unsigned int level() const { return a_level; }
+    short unsigned int level() const { return a_level; }
     int childSpace() const { return a_level * a_space_size; }
     int id() const { return a_id; }
     void setLevel(short unsigned int new_level) { a_level = new_level; }

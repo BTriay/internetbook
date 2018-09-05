@@ -4,10 +4,7 @@
 #include <QLabel>
 
 #include "barwidget.h"
-/*
-class Category;
-int Category::childSpace();
-*/
+
 class Link : public BarWidget {
     Q_OBJECT
 
@@ -19,17 +16,8 @@ public:
     Link(QString name, QString url, Category* parent_category);
     virtual ~Link();
 
-/*
-signals:
-    void sig_link_hide();
-    void sig_link_show();
-*/
 public slots:
-    void dummy() {}
-/*
-    void slot_link_hide();
-    void slot_link_show();
-*/
+
 };
 
 #endif // LINK_H

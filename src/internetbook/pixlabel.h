@@ -11,7 +11,7 @@ private:
     QPixmap a_pic;
 
 public:
-    PixLabel(const QString& pic_path, int pix_size = 14, QWidget* parent = Q_NULLPTR);
+    PixLabel(const QString& alias, int pix_size = 14, QWidget* parent = Q_NULLPTR);
     void changePicSize(int new_size);
 
 signals:

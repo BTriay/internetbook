@@ -1,10 +1,10 @@
 #include "pixlabel.h"
 
-PixLabel::PixLabel(const QString& pic_path,
+PixLabel::PixLabel(const QString& alias,
                    int pix_size,
                    QWidget* parent):
     QLabel(parent) {
-    a_pic = QPixmap(pic_path);
+    a_pic = QPixmap(":" + alias);
     this->setPixmap(a_pic.scaledToHeight(pix_size));
 }
 

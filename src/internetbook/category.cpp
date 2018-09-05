@@ -7,9 +7,9 @@ Category::Category(const QString& name, int id,
     if (a_parent_category != Q_NULLPTR) {
         a_level = a_parent_category->level() + 1;
 
-        a_pixlbl_down_arrow = new PixLabel(PIX_FOLDER + "down_arrow.png", 10);
+        a_pixlbl_down_arrow = new PixLabel("down_arrow", 10);
         connect(a_pixlbl_down_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_category_arrow_switch()));
-        a_pixlbl_right_arrow = new PixLabel(PIX_FOLDER + "right_arrow.png", 10);
+        a_pixlbl_right_arrow = new PixLabel("right_arrow", 10);
         connect(a_pixlbl_right_arrow, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_category_arrow_switch()));
 
         a_stackw_arrows = new QStackedWidget;

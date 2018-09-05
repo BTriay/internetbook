@@ -36,9 +36,6 @@ public slots:
     void slot_barwidget_pixlbl_bin_clicked();
     void slot_barwidget_pixlbl_bin_released();
 
-    void slot_barwidget_pixlbl_url_clicked();
-    void slot_barwidget_pixlbl_url_released();
-
     void slot_barwidget_textlbl_clicked();
     void slot_barwidget_textlbl_released();
     void slot_barwidget_textlbl_move_me(int y);
@@ -48,7 +45,6 @@ public slots:
 
 protected:
     QHBoxLayout* a_hlayout;
-    const QString PIX_FOLDER  = QString("../../icons/");
 };
 
 #endif // BARWIDGET_H

@@ -12,12 +12,3 @@ Link::Link(QString name, QString url, Category *parent_category) :
 Link::~Link() {
 
 }
-
-/*
-void Link::slot_link_hide() {
-    emit sig_link_hide();
-}
-
-void Link::slot_link_show() {
-    emit sig_link_show();
-}*/

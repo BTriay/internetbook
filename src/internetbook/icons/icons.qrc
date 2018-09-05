@@ -1,0 +1,21 @@
+<!DOCTYPE RCC><RCC version="1.0">
+	<qresource>
+		<file alias="new">document-new.png</file>
+		<file alias="open">document-open.png</file>
+		<file alias="save_as">document-save-as.png</file>
+		<file alias="save">document-save.png</file>
+		<file alias="down_arrow">down_arrow.png</file>
+		<file alias="cut">edit-cut.png</file>
+		<file alias="find">edit-find.png</file>
+		<file alias="paste">edit-paste.png</file>
+		<file alias="redo">edit-redo.png</file>
+		<file alias="undo">edit-undo.png</file>
+		<file alias="delete">hb-queue-delete.png</file>
+		<file alias="help_about">help-about.png</file>
+		<file alias="add">list-add.png</file>
+		<file alias="right_arrow">right_arrow.png</file>
+	</qresource>
+</RCC>
+
+
+

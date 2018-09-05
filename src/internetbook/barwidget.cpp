@@ -20,7 +20,8 @@ BarWidget::BarWidget(const QString& text, Category* parent_category,
 
         a_hlayout->addStretch();
 
-        a_pixlbl_bin = new PixLabel(PIX_FOLDER + "bin_black.png");
+        a_pixlbl_bin = new PixLabel("delete");
+        a_pixlbl_bin->setToolTip("Delete");
         a_hlayout->addWidget(a_pixlbl_bin);
         connect(a_pixlbl_bin, SIGNAL(sig_pixlbl_clicked()), this, SLOT(slot_barwidget_pixlbl_bin_clicked()));
         connect(a_pixlbl_bin, SIGNAL(sig_pixlbl_released()), this, SLOT(slot_barwidget_pixlbl_bin_released()));
@@ -44,14 +45,6 @@ qDebug() << "BarWidget::slot_pixlbl_bin_clicked()";
 void BarWidget::slot_barwidget_pixlbl_bin_released() {
     //emit sig_barwidget_hideme();
 qDebug() << "BarWidget::slot_pixlbl_bin_released()";
-}
-
-void BarWidget::slot_barwidget_pixlbl_url_clicked() {
-qDebug() << "BarWidget::slot_pixlbl_url_clicked()";
-}
-
-void BarWidget::slot_barwidget_pixlbl_url_released() {
-qDebug() << "BarWidget::slot_pixlbl_url_released()";
 }
 
 void BarWidget::slot_barwidget_textlbl_clicked() {
