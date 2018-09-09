@@ -4,6 +4,7 @@ MainWindowTree::MainWindowTree(QWidget *parent) : QWidget(parent) {
 
     a_vlayout_central = new QVBoxLayout;
     this->setLayout(a_vlayout_central);
+    //a_scroll = new QScrollArea(this);
 
     a_top_category = new Category;
 

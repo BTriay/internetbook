@@ -2,6 +2,7 @@
 #define MAINWINDOWTREE_H
 
 #include <QVBoxLayout>
+//#include <QScrollArea>
 
 #include "barwidget.h"
 #include "category.h"
@@ -12,6 +13,8 @@ class MainWindowTree : public QWidget {
 
 private:
     QVBoxLayout *a_vlayout_central;
+    //QScrollArea* a_scroll;
+
     Category* a_top_category;
 
     Category* insertCategoryInTree(const QString& cat_text, int category_id, int parent_category_id = 0);
