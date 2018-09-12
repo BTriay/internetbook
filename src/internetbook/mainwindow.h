@@ -9,7 +9,9 @@
 #include <QToolBar>
 #include <QAction>
 
+
 #include "mainwindowtree.h"
+#include "db.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT

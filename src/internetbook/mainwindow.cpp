@@ -13,6 +13,9 @@ MainWindow::MainWindow() : QMainWindow() {
 
     connect(a_act_exit, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
 
+    QString db_name;
+    Db db(db_name);
+
     //this->resize(300,200);
     this->setWindowTitle("Internet book");
 }
