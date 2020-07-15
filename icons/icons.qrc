@@ -14,7 +14,7 @@
 		<file alias="help_about">help-about.png</file>
 		<file alias="add">list-add.png</file>
 		<file alias="right_arrow">right_arrow.png</file>
-		<file alias="close">window-close.png</file>
+		<!-- <file alias="close">window-close.png</file> -->
 	</qresource>
 </RCC>
 
