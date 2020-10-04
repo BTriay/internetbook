@@ -44,12 +44,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 RESOURCES     = ./icons/icons.qrc
 
 SOURCES += \
-        ./src/main.cpp \
-        ./src/config/config.cpp \
-        ./src/internetbook/mainwindow.cpp \
-    src/config/logger.cpp
+        src/main.cpp \
+        src/config/config.cpp \
+        src/config/logger.cpp \
+        src/entity/Link.cpp
 
 HEADERS += \
-        ./src/config/config.h \
-        ./src/internetbook/mainwindow.h \
-    src/config/logger.h
+        src/config/config.h \
+        src/config/logger.h \
+        src/entity/Link.h

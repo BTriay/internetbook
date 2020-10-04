@@ -1,8 +1,9 @@
 #include <QApplication>
 
-//#include "./internetbook/mainwindow.h"
 #include "config/config.h"
 #include "config/logger.h"
+
+#include "entity/Link.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,10 +11,12 @@ int main(int argc, char *argv[])
 
     Logger::initFromConfig("logconfig.ini");
 
-    LOG_INFO("info logger test");
+    Link l("link name", "link url");
+    l.AddKeyword("huge");
 
     //MainWindow w;
     //w.show();
-    //w.update();
-    return app.exec();
+    //w.update();    
+//    return app.exec();
+    LOG_INFO("Exiting");
 }
