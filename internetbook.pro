@@ -11,17 +11,18 @@ TARGET = internetbook
 
 
 unix {
-    INCLUDEPATH += /usr/include/boost_1_72_0/boost
-    LIBS += -L/usr/include/boost_1_72_0/stage/lib -lboost_log -lpthread
+    INCLUDEPATH += /usr/include/boost_1_72_0
+    LIBS += -L/usr/include/boost_1_72_0 -L/usr/include/boost_1_72_0/stage/lib -lpthread -lboost_thread -lboost_system -lboost_log_setup -lboost_log
 }
 
 win32 {
 
 }
 
-QMAKE_CXXFLAGS += -Wall -lboost_log -lpthread
+ QMAKE_LFLAGS += -lboost_thread -lboost_system -lboost_log_setup -lboost_log -lboost_filesystem -lboost_regex
+ QMAKE_CXXFLAGS += -Wall -lboost_thread -lboost_system -lboost_log_setup -lboost_log -lboost_filesystem -lboost_regex
 
-CONFIG += c++14 \
+CONFIG += c++17 \
         debug \
         warn_on
 
@@ -45,8 +46,10 @@ RESOURCES     = ./icons/icons.qrc
 SOURCES += \
         ./src/main.cpp \
         ./src/config/config.cpp \
-        ./src/internetbook/mainwindow.cpp
+        ./src/internetbook/mainwindow.cpp \
+    src/config/logger.cpp
 
 HEADERS += \
         ./src/config/config.h \
-        ./src/internetbook/mainwindow.h
+        ./src/internetbook/mainwindow.h \
+    src/config/logger.h
