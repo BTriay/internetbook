@@ -47,9 +47,11 @@ SOURCES += \
         src/main.cpp \
         src/config/config.cpp \
         src/config/logger.cpp \
-        src/entity/Link.cpp
+        src/entity/Link.cpp \
+        src/entity/Folder.cpp
 
 HEADERS += \
         src/config/config.h \
         src/config/logger.h \
-        src/entity/Link.h
+        src/entity/Link.h \
+        src/entity/Folder.h
