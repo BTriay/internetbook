@@ -18,7 +18,3 @@ void settings::write(const QString key, const int value){
     auto settings = setup_settings();
     settings->setValue(key, value);
 }
-
-void settings::test(){
-    write("mt", 41);
-}
