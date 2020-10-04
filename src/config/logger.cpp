@@ -1,3 +1,6 @@
+// adapted from:
+// https://objectcomputing.com/resources/publications/sett/may-2016-boostlog-library
+
 #include "logger.h"
 
 #include <boost/date_time/posix_time/posix_time.hpp>

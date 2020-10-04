@@ -1,3 +1,6 @@
+// adapted from:
+// https://objectcomputing.com/resources/publications/sett/may-2016-boostlog-library
+
 #ifndef LOGGER_HEADER
 #define LOGGER_HEADER
 #pragma once
