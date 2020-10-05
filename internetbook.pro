@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui #widgets
+QT       += core gui sql #widgets
 
 TEMPLATE = app
 TARGET = internetbook
@@ -48,10 +48,12 @@ SOURCES += \
         src/config/config.cpp \
         src/config/logger.cpp \
         src/entity/Link.cpp \
-        src/entity/Folder.cpp
+        src/entity/Folder.cpp \
+        src/repository/Repository.cpp
 
 HEADERS += \
         src/config/config.h \
         src/config/logger.h \
         src/entity/Link.h \
-        src/entity/Folder.h
+        src/entity/Folder.h \
+        src/repository/Repository.h
