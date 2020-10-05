@@ -12,6 +12,7 @@ class Folder {
 
 public:
     Folder(std::string&& name);
+    std::string name() const { return a_name; }
 
     //duplicated code from Link; put in separate class, contained by Link/Folder?
 //    void AddKeyword(std::string&& keyword); //todo: review universal references...

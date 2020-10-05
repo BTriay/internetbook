@@ -11,10 +11,13 @@ class Link {
 
 public:
     Link(std::string&& name, std::string&& url);
+    std::string name() const { return a_name; }
+    std::string url() const { return a_url; }
 
-    void AddKeyword(std::string&& keyword); //todo: review universal references...
-    void RemoveKeyword(const std::string& keyword);
-    std::string ListKeywords() const;
+    //duplicated code from Link; put in separate class, contained by Link/Folder?
+    void add_keyword(std::string&& keyword); //todo: review universal references...
+    void remove_keyword(const std::string& keyword);
+    std::string list_keywords() const;
 
 };
 
