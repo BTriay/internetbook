@@ -19,8 +19,8 @@ win32 {
 
 }
 
- QMAKE_LFLAGS += -lboost_thread -lboost_system -lboost_log_setup -lboost_log -lboost_filesystem -lboost_regex
- QMAKE_CXXFLAGS += -Wall -lboost_thread -lboost_system -lboost_log_setup -lboost_log -lboost_filesystem -lboost_regex
+QMAKE_LFLAGS += -lboost_thread -lboost_system -lboost_log_setup -lboost_log -lboost_filesystem -lboost_regex
+QMAKE_CXXFLAGS += -Wall
 
 CONFIG += c++17 \
         debug \
