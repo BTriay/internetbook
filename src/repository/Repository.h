@@ -12,7 +12,7 @@ class Repository {
 private:
     QSqlDatabase a_repository;
 
-    void create_repository();
+    void create_repository(QString db_name);
 
 public:
     Repository(QString db_name = QString());

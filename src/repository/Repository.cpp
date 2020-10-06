@@ -7,7 +7,7 @@ Repository::Repository(QString db_name) {
 
     std::ifstream f(db_name.toStdString(), std::ios_base::in);
     if (!f.good())
-        create_repository();
+        create_repository(db_name);
     else {
         LOG_DEBUG("Setting the database name: " + db_name.toStdString());
         a_repository.setDatabaseName(db_name);
@@ -37,11 +37,11 @@ void Repository::test() {
         LOG_DEBUG(query.value(0).toString().toStdString())
 }
 
-void Repository::create_repository() {
+void Repository::create_repository(QString db_name) {
 
     LOG_DEBUG("Creating the db structure");
 
-    a_repository.setDatabaseName("internetbook.sqlite");
+    a_repository.setDatabaseName(db_name);
     bool ok = a_repository.open();
 
     if (ok) {
