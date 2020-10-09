@@ -1,5 +1,9 @@
 #include "Link.h"
-#include "src/config/logger.h"
+#ifndef TESTPROJ
+    #include "src/config/logger.h"
+#else
+    #include "logger.h"
+#endif
 
 Link::Link(std::string&& name, std::string&& url) : a_name(name), a_url(url) {
     LOG_DEBUG("New link created: " + name + "=" + url);
